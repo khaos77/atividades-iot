@@ -1,0 +1,75 @@
+Command: ninja flash
+[1/5] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\conta\sample_project\build\esp-idf\esptool_py && C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe C:/esp/v5.5.3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Users/conta/sample_project/build/partition_table/partition-table.bin C:/Users/conta/sample_project/build/sample_project.bin"
+sample_project.bin binary size 0xced80 bytes. Smallest app partition is 0x100000 bytes. 0x31280 bytes (19%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\conta\sample_project\build\bootloader\esp-idf\esptool_py && C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe C:/esp/v5.5.3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 C:/Users/conta/sample_project/build/bootloader/bootloader.bin"
+Bootloader binary size 0x57c0 bytes. 0x2840 bytes (31%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\esp\v5.5.3\esp-idf\components\esptool_py && C:\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=C:/esp/v5.5.3/esp-idf -D SERIAL_TOOL=C:/Espressif/tools/python/v5.5.3/venv/Scripts/python.exe;;C:/esp/v5.5.3/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32c6 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=C:/Users/conta/sample_project/build -P C:/esp/v5.5.3/esp-idf/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32c6 -p COM7 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 sample_project.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.12.dev1
+Serial port COM7
+Connecting...
+Chip is ESP32-C6 (QFN40) (revision v0.2)
+Features: Wi-Fi 6, BT 5 (LE), IEEE802.15.4, Single Core + LP Core, 160MHz, Unknown Embedded Flash
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: 98:a3:16:ff:fe:9b:88:4c
+BASE MAC: 98:a3:16:9b:88:4c
+MAC_EXT: ff:fe
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000defff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 22464 bytes to 13995...
+Writing at 0x00000000... (100 %)
+Wrote 22464 bytes (13995 compressed) at 0x00000000 in 0.2 seconds (effective 1054.9 kbit/s)...
+Hash of data verified.
+Compressed 847232 bytes to 494013...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001bbe9... (6 %)
+Writing at 0x00024e01... (9 %)
+Writing at 0x0002e953... (12 %)
+Writing at 0x00035477... (16 %)
+Writing at 0x0003d2f3... (19 %)
+Writing at 0x000444f4... (22 %)
+Writing at 0x0004afb1... (25 %)
+Writing at 0x000516da... (29 %)
+Writing at 0x00058306... (32 %)
+Writing at 0x0005e416... (35 %)
+Writing at 0x00063e89... (38 %)
+Writing at 0x0006a171... (41 %)
+Writing at 0x00070626... (45 %)
+Writing at 0x00076672... (48 %)
+Writing at 0x0007c6d6... (51 %)
+Writing at 0x000827a7... (54 %)
+Writing at 0x000886c6... (58 %)
+Writing at 0x0008e99c... (61 %)
+Writing at 0x00095904... (64 %)
+Writing at 0x0009c8f2... (67 %)
+Writing at 0x000a3996... (70 %)
+Writing at 0x000a9fac... (74 %)
+Writing at 0x000b0088... (77 %)
+Writing at 0x000b67a0... (80 %)
+Writing at 0x000bc602... (83 %)
+Writing at 0x000c31f3... (87 %)
+Writing at 0x000c9aaa... (90 %)
+Writing at 0x000d0119... (93 %)
+Writing at 0x000d5b7e... (96 %)
+Writing at 0x000dd8fd... (100 %)
+Wrote 847232 bytes (494013 compressed) at 0x00010000 in 3.0 seconds (effective 2267.6 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.0 seconds (effective 1010.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
